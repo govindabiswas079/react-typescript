@@ -4,6 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+declare global {
+  interface Window {
+    globalVariable: string;
+    globalFunction: string
+  }
+}
+
+window.globalVariable = "Hello from global";
+window.globalFunction = (function () {
+  return "Hello from global function"
+})();
+
+declare class GlobalClass {
+  constructor(name: string);
+  sayHello(): void;
+}
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
